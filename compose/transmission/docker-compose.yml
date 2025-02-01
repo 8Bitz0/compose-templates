@@ -5,7 +5,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=${TRANSSMISSION_TZ}
+      - TZ=${TRANSMISSION_TZ}
       - TRANSMISSION_WEB_HOME=
       - USER=${TRANSMISSION_USER}
       - PASS=${TRANSMISSION_PASS}
@@ -13,9 +13,9 @@ services:
       - PEERPORT=
       - HOST_WHITELIST=
     volumes:
-      - transmission_data:/config
-      - transmission_downloads:/downloads #optional
-      - transmission_watch:/watch #optional
+      - data:/config
+      - downloads:/downloads #optional
+      - watch:/watch #optional
     ports:
       - '127.0.0.1:4043:9091'
       - 51413:51413
@@ -28,3 +28,7 @@ networks:
   main:
     driver: bridge
 
+volumes:
+  data:
+  downloads:
+  watch:
