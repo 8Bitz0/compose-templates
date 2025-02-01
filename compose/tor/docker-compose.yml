@@ -1,0 +1,15 @@
+services:
+  tor:
+    container_name: tor
+    image: dockurr/tor
+    ports:
+      - 9050:9050
+      - 9051:9051
+    volumes:
+      - config:/etc/tor
+      - data:/var/lib/tor
+    stop_grace_period: 1m
+
+volumes:
+  config:
+  data:
